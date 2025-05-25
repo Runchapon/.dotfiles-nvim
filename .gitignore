@@ -1,0 +1,14 @@
+.config/nvim/luac
+.config/nvim/dap.log
+.config/nvim/diffview.log
+.config/nvim/null-ls.log
+.config/nvim/version.txt
+nvim/.config/nvim/luac
+nvim/.config/nvim/lazy-lock.json
+nvim/.config/nvim/avante/**
+nvim/.config/nvim/dap.log
+nvim/.config/nvim/diffview.log
+nvim/.config/nvim/mason-registry-update
+nvim/.config/nvim/null-ls.log
+nvim/.config/nvim/version.txt
+.luarc.json
