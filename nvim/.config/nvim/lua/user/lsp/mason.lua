@@ -5,7 +5,7 @@ local M = {
 		{ "mason-org/mason.nvim", opts = {} },
 		"neovim/nvim-lspconfig",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-    "mason-org/mason-registry",
+		"mason-org/mason-registry",
 	},
 }
 
@@ -20,6 +20,7 @@ function M.config()
 		"pyright",
 		"angularls",
 		"markdown_oxide",
+		"rust_analyzer",
 	}
 	local tools = {
 		"prettier", -- prettier formatter
@@ -44,6 +45,14 @@ function M.config()
 
 	require("mason-lspconfig").setup({
 		ensure_installed = servers,
+		automatic_enable = {
+			"tsserver",
+			"angularls",
+			"gopls",
+			exclude = {
+				"jdtls",
+			},
+		},
 	})
 
 	require("mason-tool-installer").setup({
