@@ -14,17 +14,27 @@ extend_cap.onCompletionItemSelectedCommand = "editor.action.triggerParameterHint
 -- https://neovimcraft.com/plugin/mfussenegger/nvim-jdtls/
 -- https://github.com/mfussenegger/nvim-jdtls
 --  NOTE: Needed for debugging
-local bundles = {
+-- clone https://github.com/microsoft/java-debug.git and build
+local bundles = {}
+
+local java_debug_path = path_to_mason_packages .. "/java-debug-adapter/"
+local java_debug_bundle =
+	vim.split(vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar"), "\n")
+if java_debug_bundle[1] ~= "" then
+	vim.list_extend(bundles, java_debug_bundle)
+end
+
+local java_dependency_bundle = vim.split(
 	vim.fn.glob(
-		-- vim.env.HOME .. "/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar",
-		vim.env.HOME .. "~/.config/nvim/java-debug/com.microsoft.java.debug.test"
+		home
+			.. "/.config/nvim/vscode-java-dependency/jdtls.ext/com.microsoft.jdtls.ext.core/target/com.microsoft.jdtls.ext.core-*.jar"
 	),
-}
---  WARN: old one
--- vim.list_extend(
--- 	bundles,
--- 	vim.split(vim.fn.glob(vim.env.HOME .. "/.local/share/nvim/mason/share/java-test/*.jar", true), "\n")
--- )
+	"\n"
+)
+if java_dependency_bundle[1] ~= "" then
+	vim.list_extend(bundles, java_dependency_bundle)
+end
+
 --  NOTE: Needed for running/debugging unit tests
 -- clone https://github.com/microsoft/vscode-java-test
 -- npm install && npm run build-plugin
@@ -32,6 +42,19 @@ vim.list_extend(
 	bundles,
 	vim.split(vim.fn.glob(vim.env.HOME .. "/.config/nvim/vscode-java-test/server/*.jar", true), "\n")
 )
+
+require("java-deps").setup({})
+require("spring_boot").setup({
+	java_cmd = "java",
+	jdtls_name = "jdtls",
+	log_file = home .. "/.local/state/nvim/spring-boot-ls.log",
+	exploded_ls_jar_data = false,
+	server = {
+		cmd = {},
+	},
+	autocmd = true,
+})
+vim.list_extend(bundles, require("spring_boot").java_extensions())
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -92,15 +115,15 @@ local config = {
 					-- },
 					{
 						name = "JavaSE-17",
-						path = "/usr/lib/jvm/java-17-openjdk/",
+						path = "/usr/lib/jvm/java-17-openjdk/bin",
 					},
 					{
 						name = "JavaSE-21",
-						path = "/usr/lib/jvm/java-21-openjdk/",
+						path = "/usr/lib/jvm/java-21-openjdk/bin",
 					},
 					{
 						name = "JavaSE-24",
-						path = "/usr/lib/jvm/java-24-openjdk/",
+						path = "/usr/lib/jvm/java-24-openjdk/bin",
 					},
 				},
 			},
@@ -215,7 +238,7 @@ require("dap").configurations.java = {
 		-- projectName = "yourProjectName",
 
 		-- javaExec = "java",
-		mainClass = "replace.with.your.fully.qualified.MainClass",
+		-- mainClass = "replace.with.your.fully.qualified.MainClass",
 
 		-- If using the JDK9+ module system, this needs to be extended
 		-- `nvim-jdtls` would automatically populate this property
@@ -234,7 +257,10 @@ config["on_attach"] = function(client, bufnr)
 			-- noDebug = false,
 		},
 	})
+	require("symbols-outline").setup()
+	-- local root_dir = require("jdtls").setup.find_root(root_files)
 	require("jdtls.dap").setup_dap_main_class_configs()
+	-- require("java-deps").attach(client, bufnr, root_dir)
 
 	local blanket = require("blanket")
 	blanket.setup({
@@ -272,9 +298,22 @@ config["on_attach"] = function(client, bufnr)
 		{ ";t", "<cmd>lua require 'jdtls'.test_class() <CR>", desc = "Java test class" },
 		{ ";m", "<cmd>lua require 'jdtls'.test_nearest_method() <CR>", desc = "Java test nearest method" },
 		{ ";r", springboot_nvim.boot_run, desc = "[J]ava [R]un Spring Boot" },
-		{ ";c", springboot_nvim.generate_class, desc = "[J]ava Create [C]lass" },
-		{ ";i", springboot_nvim.generate_interface, desc = "[J]ava Create [I]nterface" },
-		{ ";e", springboot_nvim.generate_enum, desc = "[J]ava Create [E]num" },
+		{ ";n", "<cmd> CreateNewJavaFile <cr>", desc = "Create new java file" },
+		{ ";N", "<cmd> SpringBootNewProject <cr>", desc = "Create new spring boot project" },
+		{
+			";D",
+			function()
+				require("java-deps").toggle_outline()
+			end,
+			desc = "Toggle dependencies tree",
+		},
+		{
+			";a",
+			function()
+				require("telescope.builtin").lsp_workspace_symbols({})
+			end,
+			desc = "List spring annotation",
+		},
 		{
 			";bs",
 			"<cmd> lua require 'blanket'.start() <cr>",

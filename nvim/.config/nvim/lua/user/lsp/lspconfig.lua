@@ -15,6 +15,31 @@ local M = {
 			event = "LspAttach",
 		},
 		-- JAVA
+    -- https://github.com/javiorfo/nvim-springtime
+		{
+			"JavaHello/spring-boot.nvim",
+			ft = { "java", "yaml", "jproperties" },
+			dependencies = {
+				"mfussenegger/nvim-jdtls", -- or nvim-java, nvim-lspconfig
+			},
+			version = "*",
+			enabled = function()
+				local is_headless = #vim.api.nvim_list_uis() == 0
+				if is_headless then
+					return false
+				end
+				return true
+			end,
+		},
+		{
+			"JavaHello/java-deps.nvim",
+			lazy = true,
+			ft = "java",
+			dependencies = {
+				"mfussenegger/nvim-jdtls",
+				"simrat39/symbols-outline.nvim",
+			},
+		},
 		{
 			-- https://github.com/mfussenegger/nvim-jdtls
 			"mfussenegger/nvim-jdtls",
@@ -27,6 +52,13 @@ local M = {
 		{
 			"elmcgill/springboot-nvim",
 			ft = "java",
+		},
+		{
+			"andreluisos/nvim-javagenie",
+			dependencies = {
+				"grapp-dev/nui-components.nvim",
+				"MunifTanjim/nui.nvim",
+			},
 		},
 		-- GO
 		{

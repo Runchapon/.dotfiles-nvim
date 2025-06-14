@@ -32,6 +32,7 @@ function M.config()
 		"ast_grep",
 		"java-debug-adapter",
 		"java-test",
+		"vscode-spring-boot-tools",
 		"google-java-format",
 		"golangci-lint",
 		"markdownlint",
