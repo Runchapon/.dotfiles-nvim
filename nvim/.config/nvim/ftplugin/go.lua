@@ -2,6 +2,10 @@ local wk = require("which-key")
 
 require("goplay").setup()
 require("dap-go").setup()
+require("go").setup({
+	tag_transform = true,
+	lsp_keymaps = false,
+})
 
 local dap = require("dap")
 dap.adapters.delve = function(callback, config)
@@ -88,10 +92,10 @@ end
 -- end, { silent = true })
 
 -- default colors
-vim.api.nvim_set_hl(0, 'GocNormal', {link='Comment'})
+vim.api.nvim_set_hl(0, "GocNormal", { link = "Comment" })
 -- vim.api.nvim_set_hl(0, 'GocCovered', {link='String'})
-vim.api.nvim_set_hl(0, 'GocCovered', { fg="#33801A" })
-vim.api.nvim_set_hl(0, 'GocUncovered', {link='Error'})
+vim.api.nvim_set_hl(0, "GocCovered", { fg = "#33801A" })
+vim.api.nvim_set_hl(0, "GocUncovered", { link = "Error" })
 
 wk.add({
 	{ ";", group = "Specific File Type: Go" },
@@ -115,7 +119,7 @@ wk.add({
 	{ ";gcf", goc.Coverage, desc = "run for the whole File", { silent = true } },
 	{ ";gct", goc.CoverageFunc, desc = "run only for a specific Test unit", { silent = true } },
 	{ ";gcc", goc.ClearCoverage, desc = "clear coverage highlights", { silent = true } },
-  { ";gca", cf, desc = "open test coverage in browser", { silent = true } },
+	{ ";gca", cf, desc = "open test coverage in browser", { silent = true } },
 	{ mode = "n" },
 	{
 		"<leader>ca",
