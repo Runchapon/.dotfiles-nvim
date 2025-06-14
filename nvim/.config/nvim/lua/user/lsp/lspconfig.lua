@@ -14,6 +14,7 @@ local M = {
 			"MysticalDevil/inlay-hints.nvim",
 			event = "LspAttach",
 		},
+		-- JAVA
 		{
 			-- https://github.com/mfussenegger/nvim-jdtls
 			"mfussenegger/nvim-jdtls",
@@ -27,6 +28,7 @@ local M = {
 			"elmcgill/springboot-nvim",
 			ft = "java",
 		},
+		-- GO
 		{
 			"ray-x/go.nvim",
 			dependencies = { -- optional packages
@@ -39,6 +41,8 @@ local M = {
 			ft = { "go", "gomod" },
 			build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 		},
+		-- RUST
+		{ "simrat39/rust-tools.nvim" },
 		-- k8s ecosystem
 		{ "towolf/vim-helm" },
 		-- for kitty.conf
@@ -53,11 +57,6 @@ local M = {
 }
 M.config = function()
 	require("inlay-hints").setup()
-	require("simaxme-java").setup()
-	require("go").setup({
-		tag_transform = true,
-		lsp_keymaps = false,
-	})
 
 	-- import mason_lspconfig plugin
 	local mason_lspconfig = require("mason-lspconfig")
@@ -80,17 +79,6 @@ M.config = function()
 		local hl = "DiagnosticSign" .. type
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
-
-	mason_lspconfig.setup({
-		automatic_enable = {
-			"tsserver",
-			"angularls",
-			"gopls",
-			exclude = {
-				"jdtls",
-			},
-		},
-	})
 
 	local c = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 	vim.lsp.config("markdown_oxide", {
