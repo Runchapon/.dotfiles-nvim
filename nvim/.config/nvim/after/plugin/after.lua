@@ -1,5 +1,5 @@
--- vim.cmd.colorscheme("rose-pine-moon")
-vim.cmd.colorscheme("kanagawa")
+vim.cmd.colorscheme("rose-pine-moon")
+-- vim.cmd.colorscheme("kanagawa")
 local wk = require("which-key")
 
 wk.add({
