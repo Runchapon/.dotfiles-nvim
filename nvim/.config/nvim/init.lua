@@ -53,7 +53,7 @@ Spec("user.lsp.mason")
 Spec("user.lsp.nvim-dap")
 Spec("user.lsp.lspconfig")
 Spec("user.lsp.sonarlint")
-Spec("user.lsp.linter")
+-- Spec("user.lsp.linter")
 Spec("user.lsp.test")
 -- autocmds
 require("user.core.autocmds")

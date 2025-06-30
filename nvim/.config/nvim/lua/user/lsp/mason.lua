@@ -18,9 +18,9 @@ function M.config()
 		"jsonls",
 		"ast_grep",
 		"pyright",
-		"angularls",
 		"markdown_oxide",
 		"rust_analyzer",
+    "ts_ls",
 	}
 	local tools = {
 		"prettier", -- prettier formatter

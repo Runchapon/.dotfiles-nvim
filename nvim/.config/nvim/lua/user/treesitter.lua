@@ -43,6 +43,9 @@ function M.config()
 		},
 		-- ensure these language parsers are installed
 		ensure_installed = {
+      "angular",
+      "css",
+      "html",
 			"json",
 			"javascript",
 			"typescript",

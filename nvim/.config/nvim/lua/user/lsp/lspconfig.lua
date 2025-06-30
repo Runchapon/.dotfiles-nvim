@@ -15,7 +15,7 @@ local M = {
 			event = "LspAttach",
 		},
 		-- JAVA
-    -- https://github.com/javiorfo/nvim-springtime
+		-- https://github.com/javiorfo/nvim-springtime
 		{
 			"JavaHello/spring-boot.nvim",
 			ft = { "java", "yaml", "jproperties" },
@@ -85,6 +85,8 @@ local M = {
 			ft = "yaml",
 			opts = {},
 		},
+		-- angular
+		{ "joeveiga/ng.nvim" },
 	},
 }
 M.config = function()
@@ -124,6 +126,18 @@ M.config = function()
 			},
 		}),
 	})
+
+	-- npm i -g vscode-langservers-extracted
+	vim.lsp.enable("html")
+	-- npm install -g @angular/language-server
+	vim.lsp.enable("angularls")
+  -- npm install -g typescript typescript-language-server
+  vim.lsp.enable('ts_ls')
+	local opts = { noremap = true, silent = true }
+	local ng = require("ng")
+	vim.keymap.set("n", "<leader>at", ng.goto_template_for_component, opts)
+	vim.keymap.set("n", "<leader>ac", ng.goto_component_with_template_file, opts)
+	vim.keymap.set("n", "<leader>aT", ng.get_template_tcb, opts)
 
 	vim.lsp.config("clangd", {
 		capabilities = capabilities,

@@ -1,6 +1,6 @@
 local M = {
 	"https://gitlab.com/schrieveslaach/sonarlint.nvim",
-	ft = { "java", "python", "cpp", "typescript", "typescriptreact", "html" },
+	ft = { "java", "python", "cpp", "typescriptreact", "html" },
 	dependencies = { "mfussenegger/nvim-jdtls" },
 	opts = {
 		handlers = {},
