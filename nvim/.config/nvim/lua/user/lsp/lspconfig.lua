@@ -131,8 +131,9 @@ M.config = function()
 	vim.lsp.enable("html")
 	-- npm install -g @angular/language-server
 	vim.lsp.enable("angularls")
-  -- npm install -g typescript typescript-language-server
-  -- vim.lsp.enable('ts_ls')
+	-- npm install -g typescript typescript-language-server
+	-- vim.lsp.enable('ts_ls')
+	-- vim.lsp.enable("bashls")
 	local opts = { noremap = true, silent = true }
 	local ng = require("ng")
 	vim.keymap.set("n", "<leader>at", ng.goto_template_for_component, opts)

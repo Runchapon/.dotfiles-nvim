@@ -11,17 +11,21 @@ local M = {
 
 function M.config()
 	local servers = {
-		"lua_ls",
-		"jdtls",
-		"gopls",
+    "angularls",
+    "ast_grep",
 		"bashls",
+    "cssls",
+		"gopls",
 		"jsonls",
-		"ast_grep",
-		"pyright",
+		"jdtls",
+		"lua_ls",
 		"markdown_oxide",
+    "pyright",
 		"rust_analyzer",
-    "ts_ls",
+		"ts_ls",
+    "vscode-spring-boot-tools"
 	}
+
 	local tools = {
 		"prettier", -- prettier formatter
 		"stylua", -- lua formatter
@@ -32,7 +36,6 @@ function M.config()
 		"ast_grep",
 		"java-debug-adapter",
 		"java-test",
-		"vscode-spring-boot-tools",
 		"google-java-format",
 		"golangci-lint",
 		"markdownlint",
