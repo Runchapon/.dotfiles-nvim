@@ -103,9 +103,19 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		local opt = vim.opt
 		opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
-		opt.tabstop = 4 -- insert 2 spaces for a tab
+		opt.tabstop = 4 -- insert 4 spaces for a tab
 	end,
 })
+
+-- NOTE: html
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "*.html",
+-- 	callback = function()
+-- 		local opt = vim.opt
+-- 		opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
+-- 		opt.tabstop = 4 -- insert 4 spaces for a tab
+-- 	end,
+-- })
 
 -- NOTE: Run gofmt + goimports on save
 local format_sync_grp = vim.api.nvim_create_augroup("goimports", {})
