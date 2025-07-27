@@ -13,3 +13,5 @@ nvim/.config/nvim/null-ls.log
 nvim/.config/nvim/version.txt
 .luarc.json
 nvim/.config/nvim/jdtls-workspace/**
+nvim/.config/nvim/jdtls-workspace/leela/.metadata
+nvim/.config/nvim/avante_prompts

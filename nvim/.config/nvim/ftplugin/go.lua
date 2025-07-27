@@ -123,9 +123,7 @@ wk.add({
 	{ mode = "n" },
 	{
 		"<leader>ca",
-		function()
-			require("go.codeaction").run_range_code_action()
-		end,
+		"<cmd>GoCodeAction<cr>",
 		desc = "Go Code Action",
 		mode = { "n", "v" },
 	},
