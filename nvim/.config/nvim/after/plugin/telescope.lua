@@ -11,6 +11,8 @@ wk.add({
 	{ "<leader>fl", "<cmd>Telescope resume<cr>", desc = "Last Search" },
 	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File" },
 	{ "<leader>fT", "<cmd>TodoTelecope<cr>", desc = "Find todos" },
+	{ "<leader>fe", "<cmd>Telescope telescope-tabs list_tabs<cr>", desc = "Find tabs" },
+	{ "<leader>fj", "<cmd>Telescope jumplist<cr>", desc = "Find jumplist" },
 	{ "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Find diagnostics" },
 	{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find keymap" },
 })
