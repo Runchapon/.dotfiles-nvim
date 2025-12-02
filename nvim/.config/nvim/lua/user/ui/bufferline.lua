@@ -5,18 +5,24 @@ local M = {
 
 M.config = function()
   require("bufferline").setup({
-    -- highlights = require("catppuccin.special.bufferline").get_theme {
-    --   styles = { "italic", "bold" },
-    --   custom = {
-    --     all = {
-    --       fill = { bg = "#000000" },
-    --     },
-    --     mocha = {
-    --       background = { fg = "#000000" },
-    --     },
-    --     latte = {
-    --       background = { fg = "#000000" },
-    --     },
+    highlights = require("catppuccin.special.bufferline").get_theme {
+      styles = { "italic", "bold" },
+      custom = {
+        all = {
+          fill = { bg = "#000000" },
+        },
+        mocha = {
+          background = { fg = "#000000" },
+        },
+        latte = {
+          background = { fg = "#000000" },
+        },
+      },
+    },
+    -- highlights = {
+    --   close_button = {
+    --     fg = '#FF0000',
+    --     bg = '#FF0000',
     --   },
     -- },
     options = {
@@ -52,9 +58,12 @@ M.config = function()
       offsets = {
         {
           filetype = "NvimTree",
-          text = "",
-          text_align = "left",
+          text = function()
+            return vim.fn.getcwd()
+          end,
+          text_align = "center",
           separator = true,
+          highlights = "Directory"
         },
       },
       hover = {
