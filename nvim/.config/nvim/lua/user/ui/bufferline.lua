@@ -5,20 +5,20 @@ local M = {
 
 M.config = function()
   require("bufferline").setup({
-    highlights = require("catppuccin.special.bufferline").get_theme {
-      styles = { "italic", "bold" },
-      custom = {
-        all = {
-          fill = { bg = "#000000" },
-        },
-        mocha = {
-          background = { fg = "#000000" },
-        },
-        latte = {
-          background = { fg = "#000000" },
-        },
-      },
-    },
+    -- highlights = require("catppuccin.special.bufferline").get_theme {
+    --   styles = { "italic", "bold" },
+    --   custom = {
+    --     all = {
+    --       fill = { bg = "#000000" },
+    --     },
+    --     mocha = {
+    --       background = { fg = "#000000" },
+    --     },
+    --     latte = {
+    --       background = { fg = "#000000" },
+    --     },
+    --   },
+    -- },
     options = {
       mode = "buffers",
       close_command = "bp|sp|bn|bd! %d",
@@ -40,8 +40,8 @@ M.config = function()
       enforce_regular_tabs = false,
       view = "multiwindow",
       show_buffer_close_icons = true,
-      -- separator_style = "thin",
-      separator_style = "slant",
+      separator_style = "thin",
+      -- separator_style = "slant",
       always_show_bufferline = true,
       diagnostics = true,
       diagnostics_indicator = function(count, level, diagnostics_dict, context)

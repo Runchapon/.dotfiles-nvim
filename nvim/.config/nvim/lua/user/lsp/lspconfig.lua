@@ -134,7 +134,9 @@ M.config = function()
     }),
   })
 
-  -- npm i -g vscode-langservers-extracted
+  -- lua
+  vim.lsp.enable('lua_ls')
+   -- npm i -g vscode-langservers-extracted
   vim.lsp.enable("html")
   -- npm install -g @angular/language-server
   vim.lsp.enable("angularls")

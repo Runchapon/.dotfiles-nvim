@@ -1,13 +1,23 @@
 local M = {
-	"xiyaowong/transparent.nvim",
+  "xiyaowong/transparent.nvim",
 }
 
 function M.config()
-	require("transparent").setup({
-		extra_groups = {
-			"LspInlayHint",
-		},
-	})
+  local transparent = require("transparent")
+  transparent.setup({
+    extra_groups = {
+      "LspInlayHint",
+      "TelescopeNormal",
+      "TelescopeBorder",
+      "TelescopePromptNormal",
+      "TelescopePromptBorder",
+      "TelescopePromptTitle",
+      "TelescopeResultsTitle",
+      "TelescopePreviewTitle",
+      "TelescopePreviewLine",
+      "TabLineFill",
+    },
+  })
 end
 
 return M

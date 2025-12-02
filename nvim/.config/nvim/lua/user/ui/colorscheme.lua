@@ -17,13 +17,16 @@ local M = {
 
 function M.config()
 	require("kanagawa").setup({
-		transparent_background = true,
+    transparent_enabled = vim.g.transparent_enabled,
+		transparent_background = vim.g.transparent_enabled,
 	})
 	require("rose-pine").setup({
-		transparent_background = true,
+    transparent_enabled = vim.g.transparent_enabled,
+		transparent_background = vim.g.transparent_enabled,
 	})
 	require("tokyonight").setup({
-		transparent_background = true,
+    transparent_enabled = vim.g.transparent_enabled,
+		transparent_background = vim.g.transparent_enabled,
 	})
 
 	require("catppuccin").setup({
@@ -32,7 +35,8 @@ function M.config()
 			light = "macchiato",
 			dark = "macchiato",
 		},
-		transparent_background = true, -- disables setting the background color.
+    transparent_enabled = vim.g.transparent_enabled,
+		transparent_background = vim.g.transparent_enabled, -- disables setting the background color.
 		show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
 		term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
 		dim_inactive = {
