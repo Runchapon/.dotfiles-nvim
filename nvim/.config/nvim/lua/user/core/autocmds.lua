@@ -137,3 +137,7 @@ vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { "*.glade" },
+  command = "set filetype=xml",
+})

@@ -3,8 +3,8 @@ require("user.core.options")
 require("user.core.keymaps")
 -- ui
 Spec("user.ui.alpha-greeter")
-Spec("user.ui.bufferline")
 Spec("user.ui.colorscheme")
+Spec("user.ui.bufferline")
 Spec("user.ui.devicon")
 Spec("user.ui.dressing")
 Spec("user.ui.lualine")
@@ -15,7 +15,7 @@ Spec("user.ui.colorpicker")
 -- git config
 Spec("user.git-nvim")
 -- other plugins
-Spec("user.ai")
+-- Spec("user.ai")
 Spec("user.autocomplete")
 Spec("user.autopair")
 Spec("user.autosession")
