@@ -1,0 +1,34 @@
+-- vim.lsp.enable("rust_analyzer")
+-- vim.lsp.config("rust_analyzer", {
+--   settings = {
+--     ["rust-analyzer"] = {
+--       check = {
+--         command = "clippy",
+--         extraArgs = { "--no-deps" }
+--       },
+--       checkOnSave = true,
+--       diagnostics = {
+--         enable = false,
+--       },
+--     },
+--   },
+-- })
+
+-- local bufnr = vim.api.nvim_get_current_buf()
+-- vim.keymap.set(
+--   "n",
+--   "<leader>ca",
+--   function()
+--     vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
+--     -- or vim.lsp.buf.codeAction() if you don't want grouping.
+--   end,
+--   { silent = true, buffer = bufnr }
+-- )
+-- vim.keymap.set(
+--   "n",
+--   "K", -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
+--   function()
+--     vim.cmd.RustLsp({ 'hover', 'actions' })
+--   end,
+--   { silent = true, buffer = bufnr }
+-- )

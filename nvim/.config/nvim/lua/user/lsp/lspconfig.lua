@@ -74,10 +74,10 @@ local M = {
       build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
     },
     -- RUST
-    {
-      "mrcjkb/rustaceanvim",
-      version = '^6',
-    },
+    -- {
+    --   "mrcjkb/rustaceanvim",
+    --   version = '^6',
+    -- },
     {
       'saecki/crates.nvim',
       event = { "BufRead Cargo.toml" },
