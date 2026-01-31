@@ -23,14 +23,15 @@ function M.config()
     "pyright",
     "rust_analyzer",
     "ts_ls",
-    "vscode-spring-boot-tools"
+    "tailwindcss",
+    -- "vscode-spring-boot-tools"
   }
 
   local tools = {
     "prettier", -- prettier formatter
-    "stylua",   -- lua formatter
-    "isort",    -- python formatter
-    "black",    -- python formatter
+    "stylua", -- lua formatter
+    "isort",  -- python formatter
+    "black",  -- python formatter
     "pylint",
     "eslint_d",
     "ast_grep",
@@ -55,6 +56,7 @@ function M.config()
       "gopls",
       exclude = {
         "jdtls",
+        "rust_analyzer",
       },
     },
   })

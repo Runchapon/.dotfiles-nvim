@@ -13,10 +13,10 @@ function M.config()
 
   -- Use this to add more results without clearing the trouble list
   local add_to_trouble = require("trouble.sources.telescope").add
-  local open_default = function (prompt_bufnr)
-    actions.file_edit(prompt_bufnr)
-    vim.cmd("setlocal buflisted")
-  end
+  -- local open_default = function (prompt_bufnr)
+  --   actions.file_edit(prompt_bufnr)
+  --   vim.cmd("setlocal buflisted")
+  -- end
 
   require("telescope").setup({
     defaults = {
