@@ -95,6 +95,10 @@ local M = {
 		},
 		-- angular
 		{ "joeveiga/ng.nvim" },
+		-- python
+		{
+			"jglasovic/venv-lsp.nvim",
+		},
 	},
 }
 M.config = function()
@@ -135,6 +139,11 @@ M.config = function()
 		}),
 	})
 
+  -- qml
+  vim.lsp.enable('qmlls')
+	--python
+	vim.lsp.enable("pylsp")
+	require("venv-lsp").setup()
 	-- lua
 	vim.lsp.enable("lua_ls")
 	-- npm i -g vscode-langservers-extracted
@@ -169,12 +178,12 @@ M.config = function()
 	})
 
 	--openapi(vacuum)
-	vim.filetype.add({
-		pattern = {
-			["openapi.*%.ya?ml"] = "yaml.openapi",
-			["openapi.*%.json"] = "json.openapi",
-		},
-	})
+	-- vim.filetype.add({
+	-- 	pattern = {
+	-- 		["openapi.*%.ya?ml"] = "yaml.openapi",
+	-- 		["openapi.*%.json"] = "json.openapi",
+	-- 	},
+	-- })
 
 	-- tailwind css
 	vim.lsp.enable("tailwindcss")
