@@ -99,6 +99,8 @@ local M = {
 		{
 			"jglasovic/venv-lsp.nvim",
 		},
+		-- QML Syntax
+		{ "peterhoeg/vim-qml", ft = { "qml" } },
 	},
 }
 M.config = function()
@@ -139,8 +141,12 @@ M.config = function()
 		}),
 	})
 
-  -- qml
-  vim.lsp.enable('qmlls')
+	-- qml
+	vim.lsp.config("qmlls", {
+		cmd = { "qmlls6" },
+		filetypes = { "qml", "qmljs" },
+		root_markers = { ".git", "shell.qml" },
+	})
 	--python
 	vim.lsp.enable("pylsp")
 	require("venv-lsp").setup()
@@ -164,7 +170,16 @@ M.config = function()
 		-- on_attach = on_attach,
 		filetypes = { "h", "c", "cpp", "cc", "objc", "objcpp" },
 		-- flags = lsp_flags,
-		cmd = { "clangd", "--background-index" },
+		cmd = {
+			"clangd",
+			"--background-index",
+			"--clang-tidy",
+			"--header-insertion=iwyu",
+			"--completion-style=detailed",
+			"--function-arg-placeholders=1",
+			"--fallback-style=llvm",
+			"--log=error",
+		},
 		single_file_support = true,
 		root_markers = {
 			".clangd",
