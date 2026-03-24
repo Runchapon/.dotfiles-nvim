@@ -143,10 +143,12 @@ M.config = function()
 
 	-- qml
 	vim.lsp.config("qmlls", {
-		cmd = { "qmlls6" },
+		cmd = { "qmlls6", "-E" },
 		filetypes = { "qml", "qmljs" },
-		root_markers = { ".git", "shell.qml" },
+		root_markers = { "shell.qml" },
 	})
+  -- terraform
+  vim.lsp.enable('terraformls')
 	--python
 	vim.lsp.enable("pylsp")
 	require("venv-lsp").setup()
