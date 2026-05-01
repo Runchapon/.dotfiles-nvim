@@ -46,6 +46,7 @@ function M.config()
 	require("render-markdown").setup({
 		file_types = { "markdown", "vimwiki" },
 		-- only_render_image_at_cursor = true,
+    latex = { enabled = false},
 		checkbox = {
 			-- Turn on / off checkbox state rendering
 			enabled = true,

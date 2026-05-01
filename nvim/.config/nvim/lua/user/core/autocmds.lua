@@ -148,3 +148,8 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = { "*.glade" },
   command = "set filetype=xml",
 })
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = {"*.tf", "*.tfvars"},
+    command = "set filetype=terraform"
+})

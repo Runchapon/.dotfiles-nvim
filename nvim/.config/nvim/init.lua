@@ -8,6 +8,7 @@ Spec("user.ui.bufferline")
 Spec("user.ui.devicon")
 Spec("user.ui.dressing")
 Spec("user.ui.lualine")
+Spec("user.ui.mini-icon")
 Spec("user.ui.noice")
 Spec("user.ui.colorpicker")
 -- conflict with noice
