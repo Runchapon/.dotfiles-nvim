@@ -4,7 +4,7 @@ local opt = vim.opt
 
 opt.backup = false -- creates a backup file
 opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
+opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
 opt.completeopt:append("menuone,noselect") -- mostly just for cmp
 opt.conceallevel = 0 -- so that `` is visible in markdown files
 -- opt.fileencoding = "utf-8" -- the encoding written to a file
