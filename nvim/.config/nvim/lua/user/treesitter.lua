@@ -18,11 +18,11 @@ function M.config()
 	-- import nvim-treesitter plugin
 	local treesitter = require("nvim-treesitter.configs")
 	vim.g.skip_ts_context_commentstring_module = true
-	require("Comment").setup({
-		pre_hook = function()
-			return require("ts_context_commentstring.internal").calculate_commentstring()
-		end,
-	})
+	-- require("Comment").setup({
+	-- 	pre_hook = function()
+	-- 		return require("ts_context_commentstring.internal").calculate_commentstring()
+	-- 	end,
+	-- })
 
 	require("treesitter-context").setup({
 		enable = false,
