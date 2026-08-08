@@ -1,4 +1,5 @@
-vim.cmd.colorscheme("rose-pine-moon")
+vim.cmd.colorscheme("cyberdream-muted")
+-- vim.cmd.colorscheme("rose-pine-moon")
 -- vim.cmd.colorscheme("kanagawa")
 local wk = require("which-key")
 

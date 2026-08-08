@@ -13,19 +13,28 @@ local M = {
 	{
 		"folke/tokyonight.nvim",
 	},
+	{
+		"scottmckendry/cyberdream.nvim",
+	},
+	{
+		"vague-theme/vague.nvim",
+	},
+  {
+    "rktjmp/lush.nvim"
+  }
 }
 
 function M.config()
 	require("kanagawa").setup({
-    transparent_enabled = vim.g.transparent_enabled,
+		transparent_enabled = vim.g.transparent_enabled,
 		transparent_background = vim.g.transparent_enabled,
 	})
 	require("rose-pine").setup({
-    transparent_enabled = vim.g.transparent_enabled,
+		transparent_enabled = vim.g.transparent_enabled,
 		transparent_background = vim.g.transparent_enabled,
 	})
 	require("tokyonight").setup({
-    transparent_enabled = vim.g.transparent_enabled,
+		transparent_enabled = vim.g.transparent_enabled,
 		transparent_background = vim.g.transparent_enabled,
 	})
 
@@ -35,7 +44,7 @@ function M.config()
 			light = "macchiato",
 			dark = "macchiato",
 		},
-    transparent_enabled = vim.g.transparent_enabled,
+		transparent_enabled = vim.g.transparent_enabled,
 		transparent_background = vim.g.transparent_enabled, -- disables setting the background color.
 		show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
 		term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
