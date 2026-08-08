@@ -5,8 +5,8 @@ local M = {
 
 function M.config()
 	require("bqf").setup({
-		auto_enable = false,
-		magic_window = false,
+		auto_enable = true,
+		magic_window = true,
 		auto_resize_height = false,
 		preview = {
 			auto_preview = true,
@@ -29,6 +29,16 @@ function M.config()
 				end
 				return ret
 			end,
+		},
+		-- make `drop` and `tab drop` to become preferred
+		func_map = {
+			drop = "o",
+			openc = "O",
+			split = "<C-s>",
+			tabdrop = "<C-t>",
+			-- set to empty string to disable
+			tabc = "",
+			ptogglemode = "z,",
 		},
 	})
 end

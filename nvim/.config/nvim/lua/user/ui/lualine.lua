@@ -161,7 +161,7 @@ function M.config()
 					mode = 0, -- 0: Shows tab_nr
 					-- 1: Shows tab_name
 					-- 2: Shows tab_nr + tab_name
-          icon = "tab",
+					icon = "tab",
 
 					path = 1, -- 0: just shows the filename
 					-- 1: shows the relative path and shorten $HOME to ~
@@ -270,7 +270,12 @@ function M.config()
 			lualine_z = {},
 		},
 		tabline = {},
-		extensions = { "mason" },
+		extensions = {
+			"mason",
+			"lazy",
+			"nvim-tree",
+      "quickfix"
+		},
 	})
 end
 

@@ -15,4 +15,5 @@ wk.add({
 	{ "<leader>fj", "<cmd>Telescope jumplist<cr>", desc = "Find jumplist" },
 	{ "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Find diagnostics" },
 	{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find keymap" },
+	{ "<leader>fq", "<cmd>Telescope quickfixhistory<cr>", desc = "Find quickfixhistory" },
 })
