@@ -20,7 +20,7 @@ function M.config()
     "jdtls",
     "lua_ls",
     "markdown_oxide",
-    "pyright",
+    "pylsp",
     "rust_analyzer",
     "ts_ls",
     "tailwindcss",
