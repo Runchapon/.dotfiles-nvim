@@ -48,10 +48,10 @@ opt.fillchars = vim.opt.fillchars + "eob: "
 
 opt.spell = true
 opt.spelllang = "en_us"
-
 opt.fillchars:append("stl: ")
-
 opt.shortmess:append("c")
+-- vim.opt.list = true
+-- vim.opt.listchars = { space = '·', tab = '» ' }
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
