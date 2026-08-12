@@ -44,9 +44,11 @@ local M = {
 function M.config()
 	require("markdown").setup()
 	require("render-markdown").setup({
-		file_types = { "markdown", "vimwiki" },
-		-- only_render_image_at_cursor = true,
-    latex = { enabled = false},
+		-- file_types = { "markdown", "vimwiki" },
+		ft = { "markdown", "vimwiki" },
+		only_render_image_at_cursor = true,
+		latex = { enabled = true },
+		heading = { enabled = true },
 		checkbox = {
 			-- Turn on / off checkbox state rendering
 			enabled = true,
