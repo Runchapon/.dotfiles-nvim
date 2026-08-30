@@ -19,7 +19,7 @@ function M.config()
     "jsonls",
     "jdtls",
     "lua_ls",
-    "markdown_oxide",
+    -- "markdown_oxide",
     "pylsp",
     "rust_analyzer",
     "ts_ls",

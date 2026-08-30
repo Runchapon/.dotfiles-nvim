@@ -43,42 +43,49 @@ local M = {
 
 function M.config()
 	require("markdown").setup()
-	require("render-markdown").setup({
-		-- file_types = { "markdown", "vimwiki" },
-		ft = { "markdown", "vimwiki" },
-		only_render_image_at_cursor = true,
-		latex = { enabled = true },
-		heading = { enabled = true },
-		checkbox = {
-			-- Turn on / off checkbox state rendering
-			enabled = true,
-			unchecked = {
-				-- Replaces '[ ]' of 'task_list_marker_unchecked'
-				icon = "⬜︎",
-				-- Highlight for the unchecked icon
-				highlight = "RenderMarkdownUnchecked",
-			},
-			checked = {
-				-- Replaces '[x]' of 'task_list_marker_checked'
-				icon = "✅",
-				-- Highligh for the checked icon
-				highlight = "RenderMarkdownChecked",
-			},
-			-- Define custom checkbox states, more involved as they are not part of the markdown grammar
-			-- As a result this requires neovim >= 0.10.0 since it relies on 'inline' extmarks
-			-- Can specify as many additional states as you like following the 'todo' pattern below
-			--   The key in this case 'todo' is for healthcheck and to allow users to change its values
-			--   'raw': Matched against the raw text of a 'shortcut_link'
-			--   'rendered': Replaces the 'raw' value when rendering
-			--   'highlight': Highlight for the 'rendered' icon
-			custom = {
-				todo = { raw = "[-]", rendered = "📌", highlight = "RenderMarkdownTodo" },
-				inprogress = { raw = "[>]", rendered = "⏳", highlight = "RenderMarkdowInfo" },
-				cancel = { raw = "[~]", rendered = "❌", highlight = "ObsidianTilde" },
-				important = { raw = "[!]", rendered = "⚠️ ", highlight = "ObsidianImportant" },
-			},
-		},
-	})
+	-- require("render-markdown").setup({
+	-- 	-- file_types = { "markdown", "vimwiki" },
+	-- 	ft = { "markdown", "vimwiki" },
+	-- 	only_render_image_at_cursor = true,
+	-- 	latex = { enabled = true },
+	-- 	heading = { enabled = true },
+	-- 	win_options = {
+	-- 		-- Explicitly set this to 2 (or 3) to prevent Treesitter highlighting from collapsing
+	-- 		conceallevel = {
+	-- 			default = 2,
+	-- 			rendered = 2,
+	-- 		},
+	-- 	},
+	-- 	checkbox = {
+	-- 		-- Turn on / off checkbox state rendering
+	-- 		enabled = true,
+	-- 		unchecked = {
+	-- 			-- Replaces '[ ]' of 'task_list_marker_unchecked'
+	-- 			icon = "⬜︎",
+	-- 			-- Highlight for the unchecked icon
+	-- 			highlight = "RenderMarkdownUnchecked",
+	-- 		},
+	-- 		checked = {
+	-- 			-- Replaces '[x]' of 'task_list_marker_checked'
+	-- 			icon = "✅",
+	-- 			-- Highligh for the checked icon
+	-- 			highlight = "RenderMarkdownChecked",
+	-- 		},
+	-- 		-- Define custom checkbox states, more involved as they are not part of the markdown grammar
+	-- 		-- As a result this requires neovim >= 0.10.0 since it relies on 'inline' extmarks
+	-- 		-- Can specify as many additional states as you like following the 'todo' pattern below
+	-- 		--   The key in this case 'todo' is for healthcheck and to allow users to change its values
+	-- 		--   'raw': Matched against the raw text of a 'shortcut_link'
+	-- 		--   'rendered': Replaces the 'raw' value when rendering
+	-- 		--   'highlight': Highlight for the 'rendered' icon
+	-- 		custom = {
+	-- 			todo = { raw = "[-]", rendered = "📌", highlight = "RenderMarkdownTodo" },
+	-- 			inprogress = { raw = "[>]", rendered = "⏳", highlight = "RenderMarkdowInfo" },
+	-- 			cancel = { raw = "[~]", rendered = "❌", highlight = "ObsidianTilde" },
+	-- 			important = { raw = "[!]", rendered = "⚠️ ", highlight = "ObsidianImportant" },
+	-- 		},
+	-- 	},
+	-- })
 
 	-- " set to 1, nvim will open the preview window after entering the Markdown buffer
 	-- " default: 0
