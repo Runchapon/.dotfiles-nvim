@@ -1,11 +1,13 @@
 local M = {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufReadPre", "BufNewFile" },
+	branch = "main", -- CRITICAL: Switch from master to main
 	build = ":TSUpdate",
 	dependencies = {
 		"windwp/nvim-ts-autotag",
 		{
 			"nvim-treesitter/nvim-treesitter-textobjects",
+			branch = "main", -- CRITICAL: Switch from master to main
 			lazy = true,
 		},
 		{ "JoosepAlviste/nvim-ts-context-commentstring" }, -- use TS for comment.nvim
@@ -16,7 +18,8 @@ local M = {
 
 function M.config()
 	-- import nvim-treesitter plugin
-	local treesitter = require("nvim-treesitter.configs")
+	-- local treesitter = require("nvim-treesitter.configs")
+	local treesitter = require("nvim-treesitter")
 	vim.g.skip_ts_context_commentstring_module = true
 	-- require("Comment").setup({
 	-- 	pre_hook = function()
@@ -49,8 +52,8 @@ function M.config()
 			"javascript",
 			"json",
 			"lua",
-			-- "markdown",
-			-- "markdown_inline",
+			"markdown",
+			"markdown_inline",
 			"query",
 			"typescript",
 			"vim",
