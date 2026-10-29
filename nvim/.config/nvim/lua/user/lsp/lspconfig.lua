@@ -147,8 +147,8 @@ M.config = function()
 		filetypes = { "qml", "qmljs" },
 		root_markers = { "shell.qml" },
 	})
-  -- terraform
-  vim.lsp.enable('terraformls')
+	-- terraform
+	vim.lsp.enable("terraformls")
 	--python
 	vim.lsp.enable("pylsp")
 	require("venv-lsp").setup()
@@ -170,7 +170,7 @@ M.config = function()
 	vim.lsp.config("clangd", {
 		capabilities = capabilities,
 		-- on_attach = on_attach,
-		filetypes = { "h", "c", "cpp", "cc", "objc", "objcpp" },
+		filetypes = { "c", "cpp", "objc", "objcpp" },
 		-- flags = lsp_flags,
 		cmd = {
 			"clangd",

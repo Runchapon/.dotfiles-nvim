@@ -17,12 +17,12 @@ wk.add({
   { "<leader>s",  group = "Split" },
   { "<leader>|",  "<C-w>v",              desc = "Split window vertically" }, -- split window vertically
   { "<leader>-",  "<C-w>s",              desc = "Split window horizontally" }, -- split window horizontally
-  { "<leader>e",  "<C-w>=",              desc = "Make splits equal size" }, -- make split windows equal width & height
-  { "<leader>x",  "<cmd>close<CR>",      desc = "Close current split" }, -- close current split window
-  { "<leader>j",  "<C-w>-",              desc = "make split window height shorter" },
-  { "<leader>k",  "<C-w>+",              desc = "make split windows height taller" },
-  { "<leader>l",  "<C-w>>5",             desc = "make split windows width bigger" },
-  { "<leader>h",  "<C-w><5",             desc = "make split windows width smaller" },
+  { "<leader>E",  "<C-w>=",              desc = "Make splits equal size" }, -- make split windows equal width & height
+  -- { "<leader>x",  "<cmd>close<CR>",      desc = "Close current split" }, -- close current split window
+  { "<leader>J",  "<C-w>-",              desc = "make split window height shorter" },
+  { "<leader>K",  "<C-w>+",              desc = "make split windows height taller" },
+  { "<leader>L",  "<C-w>>5",             desc = "make split windows width bigger" },
+  { "<leader>H",  "<C-w><5",             desc = "make split windows width smaller" },
 
   -- NOTE: undo tree
   { "<leader>u",  ":UndotreeToggle<cr>", desc = "Open Undo Tree" },
