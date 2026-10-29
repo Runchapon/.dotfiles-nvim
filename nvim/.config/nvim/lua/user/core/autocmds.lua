@@ -107,6 +107,14 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- Explicitly set commentstring for zsh filetype
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "zsh",
+    callback = function()
+        vim.bo.commentstring = "# %s"
+    end,
+})
+
 -- NOTE: html
 -- vim.api.nvim_create_autocmd("FileType", {
 -- 	pattern = "*.html",

@@ -19,6 +19,7 @@ function M.config()
 	require("ts-comments").setup()
 	local ft = require("Comment.ft")
 	ft.mysql = "--%s"
+	ft.set("zsh", "# %s")
 	vim.g.skip_ts_context_commentstring_module = true
 	---@diagnostic disable: missing-fields
 	require("ts_context_commentstring").setup({
@@ -26,7 +27,23 @@ function M.config()
 	})
 
 	require("Comment").setup({
-		pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+		-- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+		pre_hook = function(ctx)
+			if vim.bo.filetype == "zsh" then
+				return "# %s"
+			end
+			-- Try running the Treesitter context logic safely
+			local success, ts_hook = pcall(function()
+				return require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+			end)
+
+			if success and ts_hook then
+				return ts_hook(ctx)
+			end
+
+			-- Safe fallback to the buffer's native comment string if Treesitter returns nil
+			return vim.bo.commentstring
+		end,
 		-- pre_hook = function()
 		-- 	return vim.bo.commentstring
 		-- end,
