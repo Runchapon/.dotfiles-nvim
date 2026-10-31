@@ -11,7 +11,8 @@ local M = {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
 		{
-			"MysticalDevil/inlay-hints.nvim",
+			-- "MysticalDevil/inlay-hints.nvim",
+			"simrat39/inlay-hints.nvim",
 			event = "LspAttach",
 		},
 		-- JAVA

@@ -23,7 +23,7 @@ function M.config()
 				g = false,
 			},
 		},
-		win= {
+		windows= {
 			border = "rounded",
 			position = "bottom",
 			padding = { 2, 2, 2, 2 },
